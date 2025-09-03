@@ -1,60 +1,113 @@
-# Apple & Google Twitter Sentiment Analysis
+# Twitter Sentiment Analysis: Apple vs Google  
 
-This project builds an NLP model to analyze sentiment in tweets about Apple and Google products using the CrowdFlower dataset.
-
-## Overview
-
-The workflow:
-1. Load and inspect the dataset (`judge_1377884607_tweet_product_company.csv`).
-2. Normalize sentiment labels into **positive**, **negative**, or **neutral**.
-3. Filter tweets related to Apple or Google products/brands.
-4. Split into training and validation sets.
-5. Train a pipeline: **TF-IDF (1–2 grams) + Logistic Regression**.
-6. Evaluate the model and plot results (accuracy, F1, confusion matrix).
-7. Save the trained model and predictions.
-
-## Results
-
-- **Validation Accuracy:** ~0.83  
-- **Macro F1:** ~0.44 (due to class imbalance: many more positive tweets than neutral/negative).
-
-Confusion matrix and label distribution plots are generated inside the notebook.
-
-## Files
-
-- `apple_google_sentiment_analysis.ipynb` — Jupyter Notebook with the full workflow.  
-- `apple_google_twitter_sentiment.joblib` — Trained model pipeline (TF-IDF + Logistic Regression).  
-- `apple_google_predictions.csv` — Predictions for the Apple/Google subset of the dataset.  
-- `judge_1377884607_tweet_product_company.csv` — Original dataset (not included here, but required).  
-- `README.md` — This file.
-
-## Usage
-
-### Running the Notebook
-Open `apple_google_sentiment_analysis.ipynb` in **VS Code** (with the Python and Jupyter extensions) or in Jupyter Lab/Notebook. Run all cells step by step.
-
-### Using the Model in Python
-
-```python
-import joblib
-
-# Load trained pipeline
-pipe = joblib.load("apple_google_twitter_sentiment.joblib")
-
-# Example predictions
-texts = ["Love my new iPhone!", "Pixel battery is terrible."]
-print(pipe.predict(texts))
-```
-
-Expected output (approximate):
-```
-['positive' 'negative']
-```
-
-## Next Steps
-
-- Handle class imbalance (oversampling, undersampling, or advanced loss functions).  
-- Experiment with alternative models (e.g., Linear SVM, Random Forest, or Transformers like BERT).  
-- Improve neutral class detection (currently underrepresented).  
+This project builds an **NLP model** to analyze sentiment in tweets about **Apple** and **Google** products using the [CrowdFlower dataset](https://data.world/crowdflower/brands-and-product-emotions).  
+The dataset contains ~9,000 tweets labeled with human-annotated sentiment categories.  
 
 ---
+
+## 📌 Project Overview  
+- **Goal:** Classify tweets as **positive**, **negative**, or **neutral**.  
+- **Methodology:** Following the **CRISP-DM framework**:  
+  1. Business & Data Understanding  
+  2. Data Cleaning & Preparation  
+  3. Exploratory Data Analysis (EDA)  
+  4. Feature Engineering (TF-IDF)  
+  5. Model Building (Logistic Regression)  
+  6. Evaluation & Insights  
+
+---
+
+## ⚙️ Key Features  
+- Data cleaning (handling nulls, duplicates, irrelevant categories).  
+- Text preprocessing (stopword removal, punctuation cleaning, lemmatization).  
+- Label normalization (mapping multiple categories into `{positive, negative, neutral}`).  
+- Feature extraction with **TF-IDF Vectorization**.  
+- Model training with **Logistic Regression**.  
+- Model evaluation using **accuracy, precision, recall, F1-score, confusion matrix**.  
+
+---
+
+## 📂 Key Repository Areas  
+```
+├── data/
+│   └── judge-1377884607_tweet_product_company.csv   
+├── notebooks/
+│   └── sentiments_consolidated.ipynb (Main analysis notebook)
+├── images
+│   └── functionality plot                          
+├── README.md
+└── Presentation PDF
+```
+
+---
+
+## 🚀 Getting Started  
+
+### 1. Business Problem:
+
+In today’s highly competitive technology industry, customer perception and sentiment play a crucial role in shaping brand reputation and influencing purchasing decisions. Apple and Google are two of the most recognized technology companies worldwide, and their products often generate strong opinions on social media platforms such as Twitter.
+
+The goal of this project is to build a Natural Language Processing (NLP) model that can automatically classify the sentiment of Tweets related to Apple and Google products. By analyzing over 9,000 Tweets labeled as positive, negative, or neutral, the model will provide insights into how consumers feel about these brands and their products.
+
+
+### 2. Project Goals:
+
+To build a model that can rate the sentiments of a Tweet based on its content.
+
+
+### 3. Dataset:
+
+The dataset employed in the study was downloaded from https://data.world/crowdflower/brands-and-product-emotions/file/judge-1377884607_tweet_product_company.csv
+
+### 4. Methodology:
+
+The adopted structure for the project was CRISP-DM that entails undertaking Business understanding; Data Understanding; Data Preparation; Data Cleaning and Exploratory Data Analysis (EDA); Modelling; Conclusion and Recommendations.  
+
+---
+
+## 📊 Results  
+- The dataset is imbalanced (~60% neutral).  
+- Logistic Regression with TF-IDF achieved strong baseline accuracy.  
+- Evaluation metrics (confusion matrix + classification report) are available in the notebook.  
+
+
+![alt text](image.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+---
+
+## Conclusion:
+
+Logistic Regression and SVC improved recall for the negative class, making the model less biased toward neutral. Positive sentiment performance is moderate, while neutral remains strong.
+
+## Recommendations:
+
+- Further threshold optimization per class.
+- Feature engineering (e.g., combining char- and word-level n-grams).
+- Addressing class imbalance to improve negative and positive precision.
+
+## 🔮 Future Work  
+- Try **deep learning models** (LSTM, BERT).  
+- Apply **hyperparameter tuning** for better performance.  
+- Track **sentiment trends over time**.  
+
+---
+
+## 🛠️ Key Requirements  
+- Python 3.8+  
+- pandas  
+- scikit-learn  
+- nltk  
+- matplotlib  
+- seaborn  
+- jupyter  
+
+---
+
+## 📜 License  
+This project is open-source under the MIT License.  
