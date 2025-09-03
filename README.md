@@ -71,7 +71,8 @@ The adopted structure for the project was CRISP-DM that entails undertaking Busi
 - Evaluation metrics (confusion matrix + classification report) are available in the notebook.  
 
 
-![alt text](image.png)
+<img width="2400" height="1800" alt="image" src="https://github.com/user-attachments/assets/d04f3574-1489-4e92-b48f-24d34f3da61a" />
+
 
 ![alt text](image-2.png)
 
