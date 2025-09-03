@@ -163,12 +163,6 @@ The random forest model accuracy score improved to 68.01% compared to the dummy 
 <img width="2400" height="1800" alt="image" src="https://github.com/user-attachments/assets/d04f3574-1489-4e92-b48f-24d34f3da61a" />
 
 
-<img width="5400" height="8400" alt="image" src="https://github.com/user-attachments/assets/c0c2ccbb-b732-4e9f-8608-1c407a68db67" />
-
-
-<img width="5400" height="8400" alt="image" src="https://github.com/user-attachments/assets/ace9d57e-bbe7-4102-bbba-545c093ea45f" />
-
-
 <img width="5400" height="8400" alt="image" src="https://github.com/user-attachments/assets/d7b6d99a-949c-4171-8efd-ddade77b27b4" />
 
 
