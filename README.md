@@ -196,5 +196,12 @@ Logistic Regression and SVC improved recall for the negative class, making the m
 
 ---
 
+## Collaborators
+1. Maureen Auka
+2. Ochieng’ Ouma
+3. Brian Kipchumba
+4. Andrew Chege
+
+
 ## 📜 License  
 This project is open-source under the MIT License.  
